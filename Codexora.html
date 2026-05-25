@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Codexora Solutions — Websites for Every Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/918467977592?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  💬
+  <span class="wa-tooltip">Chat with us!</span>
+</a>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Codexora<span>.</span><br><span>Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    
+    <li><a href="#how">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Started</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
+  <a href="#how" onclick="document.querySelector('.mobile-nav').classList.remove('open')">How It Works</a>
+  <a href="#pricing" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
+  <a href="#contact" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      Built Websites for Real Businesses
+    </div>
+    <h1>
+      Your Business<br>
+      <span class="line2">Deserves a</span><br>
+      <span class="line3">Great Website.</span>
+
+    </h1>
+    <p class="hero-sub typewriter" id="hero-sub"></p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-primary">See Our Plans</a>
+      <a href="#how" class="btn-outline">How It Works →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num counter" data-target="24">0<span>+</span></div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div>
+        <div class="stat-num">7<span>d</span></div>
+        <div class="stat-label">Avg. Delivery Time</div>
+      </div>
+      <div>
+        <div class="stat-num counter" data-target="100">0<span>%</span></div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-card">
+      <div class="float-icon green">🏫</div>
+      <div class="float-card-text">
+        <div class="label">Latest Project</div>
+        <div class="value">Sunrise College</div>
+      </div>
+    </div>
+    <div class="float-card">
+      <div class="float-icon orange">🛒</div>
+      <div class="float-card-text">
+        <div class="label">Delivered in</div>
+        <div class="value">7 Days</div>
+      </div>
+    </div>
+    <div class="float-card">
+      <div class="float-icon blue">⭐</div>
+      <div class="float-card-text">
+        <div class="label">Client Rating</div>
+        <div class="value">4.2 / 5.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients">
+  <div class="clients-label">Trusted by businesses across industries</div>
+  <div style="overflow:hidden">
+    <div class="clients-track">
+      <div class="client-pill">🏫 Sunrise College</div>
+      <div class="client-pill">🛍️ Metro Boutique</div>
+      <div class="client-pill">📚 Greenfield School</div>
+      <div class="client-pill">🍕 Spice Garden</div>
+      <div class="client-pill">🏪 TechMart</div>
+      <div class="client-pill">🎓 Nova Institute</div>
+      <div class="client-pill">💊 MedPlus Pharmacy</div>
+      <div class="client-pill">✂️ Styles Studio</div>
+      <!-- duplicate for seamless loop -->
+      <div class="client-pill">🏫 Sunrise College</div>
+      <div class="client-pill">🛍️ Metro Boutique</div>
+      <div class="client-pill">📚 Greenfield School</div>
+      <div class="client-pill">🍕 Spice Garden</div>
+      <div class="client-pill">🏪 TechMart</div>
+      <div class="client-pill">🎓 Nova Institute</div>
+      <div class="client-pill">💊 MedPlus Pharmacy</div>
+      <div class="client-pill">✂️ Styles Studio</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <span class="section-tag">What We Build</span>
+    <h2 class="section-title">Every business needs modern website</h2>
+    <p class="section-sub">From school portals to shop landing pages — we handle everything so you can focus on running your business.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="svc-icon">🏫</div>
+      <div class="service-title">School & College Websites</div>
+      <div class="service-desc">Admissions pages, faculty profiles, timetables, notice boards, and galleries — everything an institution needs online.</div>
+      <span class="service-tag">→ Education</span>
+    </div>
+    <div class="service-card featured reveal">
+      <div class="svc-icon">🛍️</div>
+      <div class="service-title">Shop & Outlet Pages</div>
+      <div class="service-desc">Showcase your products, share your location, accept inquiries and build trust with a beautiful storefront website.</div>
+      <span class="service-tag">→ Retail & Local</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">📱</div>
+      <div class="service-title">Mobile-First Design</div>
+      <div class="service-desc">Every site we build looks stunning on phones, tablets, and desktops — because most of your customers are on mobile.</div>
+      <span class="service-tag">→ All Devices</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">⚡</div>
+      <div class="service-title">Fast & SEO-Ready</div>
+      <div class="service-desc">Optimized for speed and Google search so your business gets found — no extra cost for the basics that matter.</div>
+      <span class="service-tag">→ Performance</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🔧</div>
+      <div class="service-title">Maintenance & Updates</div>
+      <div class="service-desc">Need to update fees, timings, or add new products? We handle changes quickly so your site stays fresh.</div>
+      <span class="service-tag">→ Ongoing Support</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">💬</div>
+      <div class="service-title">WhatsApp & Contact Forms</div>
+      <div class="service-desc">Direct inquiry buttons, contact forms, and social links built in — let customers reach you in one tap.</div>
+      <span class="service-tag">→ Lead Generation</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="reveal">
+    <span class="section-tag">The Process</span>
+    <h2 class="section-title">From idea to live<br>in 4 simple steps</h2>
+    <p class="section-sub">No confusing tech jargon. We keep it simple, fast, and stress-free for every client.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-icon">📋</div>
+        <div class="step-title">Tell Us About Your Business</div>
+        <div class="step-text">Fill out a simple form or chat with us about what you need — name, services, pages, style preferences.</div>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-icon">🎨</div>
+        <div class="step-title">We Design It for You</div>
+        <div class="step-text">Our team designs a modern, professional website tailored to your business in 2–3 days.</div>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-icon">✅</div>
+        <div class="step-title">You Review & Approve</div>
+        <div class="step-text">We share a live preview. You request any changes — unlimited revisions until you're 100% happy.</div>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-icon">🚀</div>
+        <div class="step-title">We Launch It Live</div>
+        <div class="step-text">Your website goes live with a domain and hosting. Ready to show the world in under 7 days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header reveal">
+    <span class="section-tag">Simple Pricing</span>
+    <h2 class="section-title">Affordable plans for<br>every business size</h2>
+    <p class="section-sub">No hidden fees. No subscriptions. Just a fair price for a great website.</p>
+    <div class="pricing-toggle">
+      <span class="toggle-label active" id="lbl-one">One-Time</span>
+      <button class="toggle-switch" id="price-toggle" aria-label="Toggle pricing"></button>
+      <span class="toggle-label" id="lbl-maint">+ Maintenance <span class="maint-badge">AMC</span></span>
+    </div>
+  </div>
+  <div class="pricing-grid">
+    <div class="plan reveal">
+      <div class="plan-name">Basic</div>
+      <div class="plan-price"><sup>₹</sup><span class="price-one">7,999</span><span class="price-maint">999<small>/mo</small></span></div>
+      <div class="plan-desc">Perfect for shops, salons, and small outlets getting online for the first time.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Up to 3 pages</li>
+        <li><span class="check">✓</span> Mobile responsive</li>
+        <li><span class="check">✓</span> Contact form</li>
+        <li><span class="check">✓</span> WhatsApp button</li>
+        <li><span class="check">✓</span> 1 month support</li>
+      </ul>
+      <a href="#contact" class="plan-btn">Get Started</a>
+    </div>
+    <div class="plan popular reveal">
+      <div class="popular-badge">Standard</div>
+      <div class="plan-name">Business</div>
+      <div class="plan-price"><sup>₹</sup><span class="price-one">12,999</span><span class="price-maint">1,499<small>/mo</small></span></div>
+      <div class="plan-desc">Ideal for schools, colleges, and growing businesses that need a complete web presence.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Up to 8 pages</li>
+        <li><span class="check">✓</span> Mobile responsive</li>
+        <li><span class="check">✓</span> Gallery & media</li>
+        <li><span class="check">✓</span> Google Maps + SEO</li>
+        <li><span class="check">✓</span> 3 months support</li>
+        <li><span class="check">✓</span> Domain & hosting help</li>
+      </ul>
+      <a href="#contact" class="plan-btn">Get Started</a>
+    </div>
+    <div class="plan reveal">
+      <div class="plan-name">Premium</div>
+      <div class="plan-price"><sup>₹</sup><span class="price-one">18,999</span><span class="price-maint">2,499<small>/mo</small></span></div>
+      <div class="plan-desc">For institutions and businesses that need advanced features and ongoing partnership.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Unlimited pages</li>
+        <li><span class="check">✓</span> Admin dashboard</li>
+        <li><span class="check">✓</span> Online enquiry system</li>
+        <li><span class="check">✓</span> Blog / news section</li>
+        <li><span class="check">✓</span> 6 months support</li>
+        <li><span class="check">✓</span> Priority delivery</li>
+      </ul>
+      <a href="#contact" class="plan-btn">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="reveal" style="text-align:center">
+    <span class="section-tag">Reviews</span>
+    <h2 class="section-title">What our clients say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Codexora built our school website in just 5 days. Parents and students love it. The admission enquiry form alone saved us hours every week."</p>
+      <div class="testi-author">
+        <div class="avatar a1">RK</div>
+        <div>
+          <div class="author-name">Ravi Kumar</div>
+          <div class="author-role">Principal, Sunrise Public School</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"I run a boutique and had no idea how to get online. Codexora made it so easy — the website looks amazing and I get daily inquiries now!"</p>
+      <div class="testi-author">
+        <div class="avatar a2">PS</div>
+        <div>
+          <div class="author-name">Priya Sharma</div>
+          <div class="author-role">Owner, Metro Boutique</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Our college needed a full website with faculty pages, results, and a gallery. Codexora delivered everything on time and within budget. Highly recommended!"</p>
+      <div class="testi-author">
+        <div class="avatar a3">AM</div>
+        <div>
+          <div class="author-name">Arjun Mehta</div>
+          <div class="author-role">Director, Nova Commerce College</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="reveal">
+    <span class="section-tag">Our Work</span>
+    <h2 class="section-title">Websites we've built<br>for real businesses</h2>
+    <p class="section-sub">Every project is custom-designed from scratch. Here's a glimpse of what we deliver.</p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card reveal">
+      <div class="port-preview edu">
+        <span class="port-label">Education</span>
+        🏫
+      </div>
+      <div class="port-body">
+        <div class="port-title">Sunrise Public School</div>
+        <div class="port-desc">Full school portal with admissions, timetable, gallery, and notice board.</div>
+        <div class="port-tags">
+          <span class="port-tag">8 Pages</span>
+          <span class="port-tag">Admissions Form</span>
+          <span class="port-tag">Gallery</span>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="port-preview retail">
+        <span class="port-label">Retail</span>
+        🛍️
+      </div>
+      <div class="port-body">
+        <div class="port-title">Metro Boutique</div>
+        <div class="port-desc">Elegant storefront with product showcase, WhatsApp catalog & location map.</div>
+        <div class="port-tags">
+          <span class="port-tag">4 Pages</span>
+          <span class="port-tag">WhatsApp CTA</span>
+          <span class="port-tag">Google Maps</span>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="port-preview food">
+        <span class="port-label">Food & Dining</span>
+        🍕
+      </div>
+      <div class="port-body">
+        <div class="port-title">Spice Garden Restaurant</div>
+        <div class="port-desc">Menu showcase, table booking form, reviews section & delivery links.</div>
+        <div class="port-tags">
+          <span class="port-tag">5 Pages</span>
+          <span class="port-tag">Online Menu</span>
+          <span class="port-tag">Booking Form</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-header reveal">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Questions we get asked<br>all the time</h2>
+    <p class="section-sub">Everything you need to know before getting started with Codexora.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-q">How long does it take to build my website? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Most websites are ready within 5–7 working days. For larger projects like college portals or multi-page shops, it may take up to 10–14 days. We always give you a clear timeline upfront.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do I need to buy a domain or hosting separately? <span class="faq-icon">+</span></div>
+      <div class="faq-a">We guide you through the entire process. Domain and hosting can be purchased through us or independently — we help you set it all up. Annual hosting typically costs ₹2,000–₹5,000/year depending on your needs.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Can I update the website myself after it's built? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes! We offer a simple admin panel option (Premium plan) and also provide basic training. For smaller updates like text, images or pricing changes, you can simply WhatsApp us and we'll update it for you — fast.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What if I don't like the design? <span class="faq-icon">+</span></div>
+      <div class="faq-a">No problem at all. We offer unlimited revisions until you're 100% satisfied. We share a live preview before anything goes live, so you can request changes freely.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do you work with businesses outside your city? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely. We work with clients across India — everything is handled online via WhatsApp, email, and video call. Distance is never a barrier.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Is there any hidden charge after the website is delivered? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Never. The price you see is the price you pay. Domain renewal and hosting are the only recurring costs, and those are transparently communicated before you sign up.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="section-tag" style="position:relative">Let's Build Together</span>
+  <h2 class="section-title" style="max-width:640px;margin:0 auto">Ready to get your<br>business online?</h2>
+  <p class="section-sub">WhatsApp us or drop your details — we'll get back to you within 24 hours with a free quote.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/918467977592?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="btn-accent">💬 WhatsApp Us</a>
+    <a href="mailto:ay990351@gmail.com" class="btn-ghost">✉️ Send an Email</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">Codexora<span style="color:var(--accent)">.</span></a>
+      <p>Affordable, modern websites for schools, colleges, shops, and local businesses across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">School Websites</a></li>
+        <li><a href="#">College Portals</a></li>
+        <li><a href="#">Shop Pages</a></li>
+        <li><a href="#">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">hello@Codexorasolutions.in</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Codexora Solutions. All rights reserved.</span>
+    <span>Made with ❤️ for small businesses</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
