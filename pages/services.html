@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Codexora Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  💬<span class="wa-tooltip">Chat with us!</span>
+</a>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="logo" aria-label="Codexora Solutions home">
+    <img src="../logo.png" alt="Codexora Solutions">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Started</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="../index.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
+  <a href="services.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
+  <a href="process.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Process</a>
+  <a href="pricing.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
+  <a href="work.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Work</a>
+  <a href="faq.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">FAQ</a>
+  <a href="about.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">About</a>
+  <a href="contact.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <span>Services</span>
+    </div>
+    <span class="section-tag">What We Build</span>
+    <h1>Every website your<br>business could need.</h1>
+    <p>From first-time shop owners to large institutions — we build fast, mobile-first websites that bring real results, not just a pretty page.</p>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-item reveal">
+    <div class="stat-band-num">24<span>+</span></div>
+    <div class="stat-band-label">Clients Served</div>
+  </div>
+  <div class="stat-band-item reveal">
+    <div class="stat-band-num">7<span>d</span></div>
+    <div class="stat-band-label">Average Delivery</div>
+  </div>
+  <div class="stat-band-item reveal">
+    <div class="stat-band-num">6<span>+</span></div>
+    <div class="stat-band-label">Industries Covered</div>
+  </div>
+  <div class="stat-band-item reveal">
+    <div class="stat-band-num">100<span>%</span></div>
+    <div class="stat-band-label">Satisfaction Rate</div>
+  </div>
+</div>
+
+<!-- CORE SERVICES -->
+<section class="services" id="services" style="background:var(--surface)">
+  <div class="services-header reveal">
+    <span class="section-tag">Core Services</span>
+    <h2 class="section-title">Everything we offer,<br>clearly laid out</h2>
+    <p class="section-sub">Pick the type that fits your business — or mix and match. We handle it all under one roof.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="svc-icon">🏫</div>
+      <div class="service-title">School & College Websites</div>
+      <div class="service-desc">Admissions pages, faculty profiles, timetable grids, notice boards, online galleries, and result portals — everything an institution needs to look credible and operate smoothly online.</div>
+      <span class="service-tag">→ Education</span>
+    </div>
+    <div class="service-card featured reveal">
+      <div class="svc-icon">🛍️</div>
+      <div class="service-title">Shop & Outlet Pages</div>
+      <div class="service-desc">Showcase your products beautifully, embed your Google Maps location, collect WhatsApp inquiries, and build instant trust with customers — all in a clean storefront site.</div>
+      <span class="service-tag">→ Retail & Local</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🍽️</div>
+      <div class="service-title">Restaurant & Food Businesses</div>
+      <div class="service-desc">Digital menus, table booking forms, delivery links, customer review sections, and chef spotlights — everything a restaurant needs to fill seats and get orders.</div>
+      <span class="service-tag">→ Food & Dining</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🏥</div>
+      <div class="service-title">Clinics & Healthcare</div>
+      <div class="service-desc">Doctor profiles, appointment request forms, service listings, and patient-friendly designs that communicate trust and professionalism at a glance.</div>
+      <span class="service-tag">→ Healthcare</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">📱</div>
+      <div class="service-title">Mobile-First Design</div>
+      <div class="service-desc">Every site we build is tested across phones, tablets, and desktops. Most of your customers are on mobile — we make sure they get the best experience possible.</div>
+      <span class="service-tag">→ All Devices</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">⚡</div>
+      <div class="service-title">Fast & SEO-Ready</div>
+      <div class="service-desc">Optimized images, clean code, and basic on-page SEO are standard on every project. Your site loads fast and shows up on Google — no add-on fees.</div>
+      <span class="service-tag">→ Performance</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">💬</div>
+      <div class="service-title">WhatsApp & Contact Forms</div>
+      <div class="service-desc">Direct inquiry buttons, contact forms, and social links built in from day one — so customers can reach you in one tap, any time.</div>
+      <span class="service-tag">→ Lead Generation</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🔧</div>
+      <div class="service-title">Maintenance & AMC</div>
+      <div class="service-desc">Need a fee update, new product listing, or banner change? Our AMC plans cover monthly content updates so your site always stays fresh and accurate.</div>
+      <span class="service-tag">→ Ongoing Support</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="svc-icon">🌐</div>
+      <div class="service-title">Domain & Hosting Setup</div>
+      <div class="service-desc">We guide you through purchasing a domain name and setting up hosting — or we handle the whole thing for you. No tech confusion, just a live website.</div>
+      <span class="service-tag">→ Setup & Launch</span>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section style="background:var(--ink); padding:100px 6vw;">
+  <div class="reveal" style="max-width:560px; margin-bottom:4rem">
+    <span class="section-tag">Add-Ons</span>
+    <h2 class="section-title" style="color:var(--white)">Power up your website<br>with extras</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.5)">Optional features that can be added to any plan based on your business needs.</p>
+  </div>
+  <div class="card-grid">
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">🖼️</div>
+      <h3>Image Gallery & Media</h3>
+      <p>Lightbox photo galleries, video embeds, and auto-playing slideshows — perfect for schools, studios, and restaurants wanting to show off their space.</p>
+    </div>
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">🗺️</div>
+      <h3>Google Maps Integration</h3>
+      <p>Embedded location maps so customers can find you instantly. Especially useful for shops, clinics, and restaurants with walk-in traffic.</p>
+    </div>
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">📊</div>
+      <h3>Admin Dashboard</h3>
+      <p>A simple login panel to update your own content — edit pricing, add photos, publish notices — without touching a single line of code.</p>
+    </div>
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">📝</div>
+      <h3>Blog / News Section</h3>
+      <p>Publish announcements, blog posts, and updates directly on your site. Great for schools, clinics, and businesses that want regular content.</p>
+    </div>
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">🔒</div>
+      <h3>SSL & Security Setup</h3>
+      <p>HTTPS secured site with a padlock indicator — builds trust with visitors and required by Google for good search ranking.</p>
+    </div>
+    <div class="highlight-card dark-card reveal">
+      <div class="icon-box dark">📧</div>
+      <h3>Professional Email</h3>
+      <p>Get a branded email like hello@yourbusiness.in set up and working — far more professional than Gmail or Hotmail addresses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="section-tag" style="position:relative">Start Today</span>
+  <h2 class="section-title" style="max-width:600px;margin:0 auto">Not sure which service<br>you need?</h2>
+  <p class="section-sub">Just WhatsApp us. We'll ask you a few quick questions and recommend the right plan — no pressure, no commitment.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="btn-accent">💬 WhatsApp Us</a>
+    <a href="pricing.html" class="btn-ghost">See Pricing Plans →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo">
+        <img src="../logofoot.png" alt="Codexora Solutions">
+      </a>
+      <p>Affordable, modern websites for schools, colleges, shops, and local businesses across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">School Websites</a></li>
+        <li><a href="services.html">College Portals</a></li>
+        <li><a href="services.html">Shop Pages</a></li>
+        <li><a href="services.html">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/919628802518" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:CodexoraSolutions@gmail.com">hello@codexorasolutions.in</a></li>
+        <li><a href="https://www.instagram.com/codexorasolutions" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/codexorasolutions" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Codexora Solutions. All rights reserved.</span>
+    <span>Made with ❤️ for small businesses</span>
+  </div>
+</footer>
+
+<script src="page.js"></script>
+</body>
+</html>
