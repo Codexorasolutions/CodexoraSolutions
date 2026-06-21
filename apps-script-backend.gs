@@ -11,7 +11,7 @@
  * 4. Re-deploy (New Deployment, not "manage deployments") every time you edit this file
  */
 
-const RECAPTCHA_SECRET_KEY = '6LdPiCstAAAAAPmSLmr4UZ1X3mUPUg0m6jswLixV'; // ⚠️ paste your Secret Key here
+const RECAPTCHA_SECRET_KEY = '6LdPiCstAAAAABka0n3Zo88yZGAGKdhvpbbI4Qor'; // ⚠️ paste your Secret Key here
 const SHEET_NAME = 'Enquiries'; // the tab name inside your Google Sheet
 
 function doPost(e) {
