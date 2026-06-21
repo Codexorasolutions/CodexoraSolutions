@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="page.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
@@ -41,6 +42,50 @@
   .social-btn:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
   .social-btn.wa { border-color: #25d366; color: #25d366; }
   .social-btn.wa:hover { background: #25d366; color: var(--white); }
+
+  /* ── GOOGLE reCAPTCHA WRAPPER ── */
+  .recaptcha-wrap { margin-bottom: 1.2rem; }
+  .recaptcha-wrap .g-recaptcha { display: inline-block; }
+  .form-submit:disabled { opacity: .55; cursor: not-allowed; transform: none !important; }
+
+  .error-msg {
+    display: none; background: rgba(224,82,74,.08); border: 1px solid rgba(224,82,74,.3);
+    border-radius: 14px; padding: 16px 22px; margin-top: 1.2rem;
+    color: #c43a32; font-weight: 600; font-size: .88rem;
+  }
+  .error-msg.show { display: block; }
+
+  /* ── SUBMISSION SUMMARY (response ticket) ── */
+  .enquiry-ticket {
+    display: none; background: var(--ink); border-radius: 18px;
+    padding: 28px 26px; margin-top: 1.4rem;
+    border: 1px solid rgba(0,198,162,.25);
+  }
+  .enquiry-ticket.show { display: block; }
+  .enquiry-ticket-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem;
+    padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .enquiry-ticket-head .tick-icon {
+    width: 34px; height: 34px; border-radius: 50%; background: rgba(0,198,162,.15);
+    color: var(--accent); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .enquiry-ticket-head h4 { font-family:'Syne',sans-serif; color: var(--white); font-size: 1rem; font-weight: 700; }
+  .enquiry-ticket-head span { font-size: .75rem; color: rgba(255,255,255,.4); }
+  .ticket-row {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+    font-size: .85rem;
+  }
+  .ticket-row:last-child { border-bottom: none; }
+  .ticket-row .k { color: rgba(255,255,255,.45); flex-shrink: 0; }
+  .ticket-row .v { color: var(--white); font-weight: 500; text-align: right; }
+  .ticket-id {
+    font-family: 'Syne', sans-serif; font-size: .75rem; color: var(--accent);
+    background: rgba(0,198,162,.1); padding: 4px 10px; border-radius: 6px;
+    letter-spacing: .04em;
+  }
 </style>
 </head>
 <body>
@@ -59,7 +104,6 @@
     <img src="../logo.png" alt="Codexora Solutions">
   </a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="process.html">Process</a></li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -76,7 +120,6 @@
 
 <div class="mobile-nav">
   <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
-  <a href="../index.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
   <a href="services.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
   <a href="process.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Process</a>
   <a href="pricing.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
@@ -155,10 +198,33 @@
         <textarea id="inp-msg" placeholder="What pages do you need? Any design references? Anything specific you'd like us to know..."></textarea>
       </div>
 
-      <button class="form-submit" onclick="submitForm()">🚀 Send Enquiry</button>
+      <!-- GOOGLE reCAPTCHA -->
+      <div class="form-group">
+        <label>Security Check *</label>
+        <div class="recaptcha-wrap">
+          <div class="g-recaptcha" data-sitekey="6LdPiCstAAAAAPmSLmr4UZ1X3mUPUg0m6jswLixV"></div>
+        </div>
+      </div>
+
+      <button class="form-submit" id="submit-btn" onclick="submitForm()">🚀 Send Enquiry</button>
       <div class="success-msg" id="success-msg">
         ✅ Thanks! We've received your enquiry and will reply within a few hours. Check your WhatsApp.
       </div>
+      <div class="error-msg" id="error-msg"></div>
+
+      <!-- ENQUIRY RESPONSE SUMMARY -->
+      <div class="enquiry-ticket" id="enquiry-ticket">
+        <div class="enquiry-ticket-head">
+          <div class="tick-icon">✓</div>
+          <div style="flex:1">
+            <h4>Enquiry Submitted</h4>
+            <span id="ticket-time"></span>
+          </div>
+          <span class="ticket-id" id="ticket-id"></span>
+        </div>
+        <div id="ticket-body"></div>
+      </div>
+
       <p style="font-size:.8rem; color:var(--muted); margin-top:1rem;">We reply within 2–4 hours on working days. For instant response, WhatsApp us directly.</p>
     </div>
 
@@ -292,7 +358,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="../index.html" class="logo"><img src="../logofoot.png" alt="Codexora Solutions"></a>
+      <a href="../index.html" class="logo"><img src="../logo.png" alt="Codexora Solutions"></a>
       <p>Affordable, modern websites for schools, colleges, shops, and local businesses across India.</p>
     </div>
     <div class="footer-col">
@@ -331,24 +397,104 @@
 
 <script src="page.js"></script>
 <script>
+// ⚠️ Your Apps Script Web App URL (deployed from your Google Sheet)
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhl8Y6F7Dx-wbqx0VHMz-7epqPETA0XQTVaEJ32Wsly8GkkGxxC_KyJfZGvvFt1C9wpA/exec';
+
 function submitForm() {
   const name = document.getElementById('inp-name').value.trim();
   const phone = document.getElementById('inp-phone').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
   const biz = document.getElementById('inp-biz').value.trim();
+  const type = document.getElementById('inp-type').value || 'Not specified';
+  const plan = document.getElementById('inp-plan').value || 'Not specified';
+  const msg = document.getElementById('inp-msg').value.trim() || 'No additional details';
+
+  const errorBox = document.getElementById('error-msg');
+  errorBox.classList.remove('show');
+  document.getElementById('success-msg').classList.remove('show');
+
   if (!name || !phone || !biz) {
     alert('Please fill in your name, phone, and business name to send the enquiry.');
     return;
   }
-  // Build WhatsApp message
-  const type = document.getElementById('inp-type').value || 'Not specified';
-  const plan = document.getElementById('inp-plan').value || 'Not specified';
-  const msg = document.getElementById('inp-msg').value.trim() || 'No additional details';
-  const wa = `Hi Codexora! I'm interested in a website.\n\nName: ${name}\nPhone: ${phone}\nBusiness: ${biz}\nType: ${type}\nPlan: ${plan}\nDetails: ${msg}`;
-  document.getElementById('success-msg').classList.add('show');
-  // Open WhatsApp after short delay
-  setTimeout(() => {
-    window.open(`https://wa.me/919628802518?text=${encodeURIComponent(wa)}`, '_blank');
-  }, 800);
+
+  // ── Google reCAPTCHA check ──
+  const captchaToken = grecaptcha.getResponse();
+  if (!captchaToken) {
+    errorBox.textContent = '⚠ Please complete the "I\'m not a robot" check before submitting.';
+    errorBox.classList.add('show');
+    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const payload = {
+    name, phone, email, business: biz,
+    type, plan, message: msg,
+    captchaToken
+  };
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => res.json())
+    .then(result => {
+      btn.disabled = false;
+      btn.textContent = '🚀 Send Enquiry';
+
+      if (!result.success) {
+        errorBox.textContent = '✕ ' + (result.error || 'Something went wrong. Please try again or WhatsApp us directly.');
+        errorBox.classList.add('show');
+        grecaptcha.reset();
+        return;
+      }
+
+      // ── Success: show ticket + clear form ──
+      const ticketId = result.ticketId;
+      const submittedAt = new Date();
+
+      document.getElementById('success-msg').classList.add('show');
+      document.getElementById('ticket-id').textContent = ticketId;
+      document.getElementById('ticket-time').textContent = submittedAt.toLocaleString('en-IN', {
+        day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+      document.getElementById('ticket-body').innerHTML = `
+        <div class="ticket-row"><span class="k">Name</span><span class="v">${escapeHtml(name)}</span></div>
+        <div class="ticket-row"><span class="k">Phone</span><span class="v">${escapeHtml(phone)}</span></div>
+        ${email ? `<div class="ticket-row"><span class="k">Email</span><span class="v">${escapeHtml(email)}</span></div>` : ''}
+        <div class="ticket-row"><span class="k">Business</span><span class="v">${escapeHtml(biz)}</span></div>
+        <div class="ticket-row"><span class="k">Type</span><span class="v">${escapeHtml(type)}</span></div>
+        <div class="ticket-row"><span class="k">Plan</span><span class="v">${escapeHtml(plan)}</span></div>
+      `;
+      document.getElementById('enquiry-ticket').classList.add('show');
+      document.getElementById('enquiry-ticket').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      grecaptcha.reset();
+
+      // Hand off to WhatsApp with the ticket ID included
+      const wa = `Hi Codexora! I'm interested in a website.\n\nTicket: ${ticketId}\nName: ${name}\nPhone: ${phone}\nBusiness: ${biz}\nType: ${type}\nPlan: ${plan}\nDetails: ${msg}`;
+      setTimeout(() => {
+        window.open(`https://wa.me/919628802518?text=${encodeURIComponent(wa)}`, '_blank');
+      }, 600);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = '🚀 Send Enquiry';
+      errorBox.textContent = '✕ Could not reach the server. Please check your connection or WhatsApp us directly.';
+      errorBox.classList.add('show');
+      grecaptcha.reset();
+    });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
 }
 </script>
 </body>
