@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Codexora Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="page.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  .success-msg {
+    display: none; background: rgba(0,198,162,.1); border: 1px solid rgba(0,198,162,.3);
+    border-radius: 14px; padding: 18px 24px; margin-top: 1.2rem;
+    color: var(--accent); font-weight: 600; font-size: .92rem;
+  }
+  .success-msg.show { display: block; }
+  .map-wrapper {
+    border-radius: 18px; overflow: hidden; border: 1px solid var(--border);
+    height: 320px; background: #e8e8e4;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .map-placeholder {
+    text-align: center; color: var(--muted);
+  }
+  .map-placeholder .map-icon { font-size: 3rem; margin-bottom: .8rem; }
+  .map-placeholder p { font-size: .85rem; line-height: 1.6; }
+  .social-row {
+    display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 50px;
+    font-size: .82rem; font-weight: 600;
+    text-decoration: none; border: 1.5px solid var(--border);
+    color: var(--ink); background: var(--white);
+    transition: .2s;
+  }
+  .social-btn:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .social-btn.wa { border-color: #25d366; color: #25d366; }
+  .social-btn.wa:hover { background: #25d366; color: var(--white); }
+
+  /* ── GOOGLE reCAPTCHA WRAPPER ── */
+  .recaptcha-wrap { margin-bottom: .6rem; }
+  .recaptcha-wrap .g-recaptcha { display: inline-block; }
+  .captcha-expired-msg {
+    display: none; align-items: center; gap: 6px;
+    font-size: .8rem; font-weight: 600; color: #c47a1f;
+    margin-bottom: 1rem;
+  }
+  .captcha-expired-msg.show { display: flex; }
+  .form-submit:disabled { opacity: .55; cursor: not-allowed; transform: none !important; }
+
+  .error-msg {
+    display: none; background: rgba(224,82,74,.08); border: 1px solid rgba(224,82,74,.3);
+    border-radius: 14px; padding: 16px 22px; margin-top: 1.2rem;
+    color: #c43a32; font-weight: 600; font-size: .88rem;
+  }
+  .error-msg.show { display: block; }
+
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  💬<span class="wa-tooltip">Chat with us!</span>
+</a>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="logo">
+    <img src="../logo.png" alt="Codexora Solutions">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Started</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
+  <a href="../index.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
+  <a href="services.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
+  <a href="process.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Process</a>
+  <a href="pricing.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
+  <a href="work.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Work</a>
+  <a href="faq.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">FAQ</a>
+  <a href="about.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">About</a>
+  <a href="contact.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › <span>Contact</span>
+    </div>
+    <span class="section-tag">Get In Touch</span>
+    <h1>Let's build your<br>website together.</h1>
+    <p>Fill out the form, drop a WhatsApp, or email us directly. We reply within a few hours — no commitment needed to get in touch.</p>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section style="background:var(--surface); padding:100px 6vw;">
+  <div class="contact-grid">
+
+    <!-- FORM -->
+    <div class="reveal">
+      <span class="section-tag">Project Enquiry</span>
+      <h2 class="section-title" style="margin-bottom:2rem;">Tell us about your<br>project</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="inp-name" placeholder="Ravi Kumar" autocomplete="name"/>
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp *</label>
+          <input type="tel" id="inp-phone" placeholder="+91 98765 43210" autocomplete="tel"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="inp-email" placeholder="yourname@email.com" autocomplete="email"/>
+      </div>
+      <div class="form-group">
+        <label>Business Name *</label>
+        <input type="text" id="inp-biz" placeholder="e.g. Sunrise Public School"/>
+      </div>
+      <div class="form-group">
+        <label>Business Type</label>
+        <select id="inp-type">
+          <option value="" disabled selected>Select your industry</option>
+          <option>School / College</option>
+          <option>Shop / Retail</option>
+          <option>Restaurant / Food</option>
+          <option>Clinic / Healthcare</option>
+          <option>Salon / Beauty</option>
+          <option>Real Estate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Which plan are you interested in?</label>
+        <select id="inp-plan">
+          <option value="" disabled selected>Select a plan</option>
+          <option>Basic — ₹8,999</option>
+          <option>Business — ₹14,999</option>
+          <option>Premium — ₹23,999</option>
+          <option>Not sure yet — help me choose</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us more about your project</label>
+        <textarea id="inp-msg" placeholder="What pages do you need? Any design references? Anything specific you'd like us to know..."></textarea>
+      </div>
+
+      <!-- GOOGLE reCAPTCHA -->
+      <div class="form-group">
+        <label>Security Check *</label>
+        <div class="recaptcha-wrap">
+          <div class="g-recaptcha"
+               data-sitekey="6LdPiCstAAAAAPmSLmr4UZ1X3mUPUg0m6jswLixV"
+               data-expired-callback="onCaptchaExpired"></div>
+        </div>
+        <div class="captcha-expired-msg" id="captcha-expired-msg">⏱ Security check expired — please tick the box again before submitting.</div>
+      </div>
+
+      <button class="form-submit" id="submit-btn" onclick="submitForm()">🚀 Send Enquiry</button>
+      <div class="success-msg" id="success-msg">
+        ✅ Thanks! We've received your enquiry and will reply within a few hours. Check your WhatsApp.
+      </div>
+      <div class="error-msg" id="error-msg"></div>
+
+      <p style="font-size:.8rem; color:var(--muted); margin-top:1rem;">We reply within 2–4 hours on working days. For instant response, WhatsApp us directly.</p>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="reveal">
+      <span class="section-tag">Direct Contact</span>
+      <h2 class="section-title" style="margin-bottom:2rem;">Reach us directly</h2>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">💬</div>
+        <div class="contact-info-text">
+          <h4>WhatsApp (Fastest)</h4>
+          <a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" target="_blank">+91 96288 02518</a>
+          <p>We typically reply within a few hours</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉️</div>
+        <div class="contact-info-text">
+          <h4>Email</h4>
+          <a href="mailto:CodexoraSolutions@gmail.com">CodexoraSolutions@gmail.com</a>
+          <p>For detailed project briefs and documents</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div class="contact-info-text">
+          <h4>Location</h4>
+          <p>Ballia, Uttar Pradesh, India</p>
+          <p>Serving clients across India — remote-first</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">🕐</div>
+        <div class="contact-info-text">
+          <h4>Working Hours</h4>
+          <p>Mon–Sat: 9:00 AM – 8:00 PM IST</p>
+          <p>Sunday: Limited availability</p>
+        </div>
+      </div>
+
+      <!-- Social links -->
+      <div style="margin-top:1rem;">
+        <div style="font-family:'Syne',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;">Find us on</div>
+        <div class="social-row">
+          <a href="https://wa.me/919628802518" class="social-btn wa" target="_blank">💬 WhatsApp</a>
+          <a href="https://www.instagram.com/codexorasolutions" class="social-btn" target="_blank">📸 Instagram</a>
+          <a href="https://www.linkedin.com/company/codexorasolutions" class="social-btn" target="_blank">💼 LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="map-wrapper" style="margin-top:2rem;">
+        <div class="map-placeholder">
+          <div class="map-icon">📍</div>
+          <p>Ballia, Uttar Pradesh<br><a href="https://maps.google.com/?q=Ballia,Uttar+Pradesh" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:600;">Open in Google Maps →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CONNECTS -->
+<section style="background:var(--ink); padding:80px 6vw;">
+  <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+    <span class="section-tag">Prefer Instant Contact?</span>
+    <h2 class="section-title" style="color:var(--white)">No forms required —<br>just reach out directly.</h2>
+  </div>
+  <div class="card-grid">
+    <div class="highlight-card dark-card reveal" style="text-align:center;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">💬</div>
+      <h3>WhatsApp Chat</h3>
+      <p>The fastest way to reach us. Message us your requirement and we'll respond with questions and a rough quote.</p>
+      <a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" target="_blank" style="display:inline-block; margin-top:1.4rem; padding:11px 28px; background:var(--accent); color:var(--ink); border-radius:50px; font-size:.88rem; font-weight:700; text-decoration:none;">Open WhatsApp</a>
+    </div>
+    <div class="highlight-card dark-card reveal" style="text-align:center;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">✉️</div>
+      <h3>Email Us</h3>
+      <p>Prefer email? Send us your business name, what you need, and any reference sites you like. We'll reply with a quote.</p>
+      <a href="mailto:CodexoraSolutions@gmail.com" style="display:inline-block; margin-top:1.4rem; padding:11px 28px; background:rgba(255,255,255,.1); color:var(--white); border-radius:50px; font-size:.88rem; font-weight:700; text-decoration:none; border:1px solid rgba(255,255,255,.2);">Send Email</a>
+    </div>
+    <div class="highlight-card dark-card reveal" style="text-align:center;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">📋</div>
+      <h3>Project Form</h3>
+      <p>Want to give us all the details upfront? Fill our detailed client intake form and we'll have a plan ready within hours.</p>
+      <a href="../ClientResponseForm/index.html" style="display:inline-block; margin-top:1.4rem; padding:11px 28px; background:rgba(255,255,255,.1); color:var(--white); border-radius:50px; font-size:.88rem; font-weight:700; text-decoration:none; border:1px solid rgba(255,255,255,.2);">Start Form</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SHORTCUT -->
+<section style="background:var(--surface); padding:80px 6vw;">
+  <div class="two-col">
+    <div class="reveal">
+      <span class="section-tag">Before You Write</span>
+      <h2 class="section-title">Common questions<br>already answered</h2>
+      <p class="section-sub">Check our FAQ page — most questions about timelines, pricing, revisions, and process are covered there in plain language.</p>
+      <a href="faq.html" style="display:inline-flex; align-items:center; gap:8px; margin-top:1.8rem; padding:14px 30px; background:var(--ink); color:var(--white); border-radius:50px; font-size:.92rem; font-weight:600; text-decoration:none; transition:.2s;" onmouseover="this.style.background='var(--accent)';this.style.color='var(--ink)';" onmouseout="this.style.background='var(--ink)';this.style.color='var(--white)';">Read the FAQ →</a>
+    </div>
+    <div class="reveal">
+      <div class="highlight-card">
+        <div class="icon-box">⏱️</div>
+        <h3>Typical Response Times</h3>
+        <div style="margin-top:1rem; display:flex; flex-direction:column; gap:.7rem;">
+          <div style="display:flex; justify-content:space-between; padding:.7rem 0; border-bottom:1px solid var(--border);">
+            <span style="font-size:.88rem; font-weight:500;">WhatsApp</span>
+            <span style="font-size:.88rem; color:var(--accent); font-weight:600;">~1 Hour</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:.7rem 0; border-bottom:1px solid var(--border);">
+            <span style="font-size:.88rem; font-weight:500;">Email</span>
+            <span style="font-size:.88rem; color:var(--accent); font-weight:600;">2–4 Hours</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:.7rem 0; border-bottom:1px solid var(--border);">
+            <span style="font-size:.88rem; font-weight:500;">Contact Form</span>
+            <span style="font-size:.88rem; color:var(--accent); font-weight:600;">2–6 Hours</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:.7rem 0;">
+            <span style="font-size:.88rem; font-weight:500;">Quote Ready</span>
+            <span style="font-size:.88rem; color:var(--accent); font-weight:600;">Within 24 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="../index.html" class="logo"><img src="../logofoot.png" alt="Codexora Solutions"></a>
+      <p>Affordable, modern websites for schools, colleges, shops, and local businesses across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">School Websites</a></li>
+        <li><a href="services.html">College Portals</a></li>
+        <li><a href="services.html">Shop Pages</a></li>
+        <li><a href="services.html">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/919628802518" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:CodexoraSolutions@gmail.com">hello@codexorasolutions.in</a></li>
+        <li><a href="https://www.instagram.com/codexorasolutions" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/codexorasolutions" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Codexora Solutions. All rights reserved.</span>
+    <span>Made with ❤️ for small businesses</span>
+  </div>
+</footer>
+
+<script src="page.js"></script>
+<script>
+// ⚠️ Your Apps Script Web App URL (deployed from your Google Sheet)
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhl8Y6F7Dx-wbqx0VHMz-7epqPETA0XQTVaEJ32Wsly8GkkGxxC_KyJfZGvvFt1C9wpA/exec';
+
+function onCaptchaExpired() {
+  document.getElementById('captcha-expired-msg').classList.add('show');
+}
+
+function submitForm() {
+  const name = document.getElementById('inp-name').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const biz = document.getElementById('inp-biz').value.trim();
+  const type = document.getElementById('inp-type').value || 'Not specified';
+  const plan = document.getElementById('inp-plan').value || 'Not specified';
+  const msg = document.getElementById('inp-msg').value.trim() || 'No additional details';
+
+  const errorBox = document.getElementById('error-msg');
+  errorBox.classList.remove('show');
+  document.getElementById('success-msg').classList.remove('show');
+
+  if (!name || !phone || !biz) {
+    alert('Please fill in your name, phone, and business name to send the enquiry.');
+    return;
+  }
+
+  // ── Google reCAPTCHA check ──
+  const captchaToken = grecaptcha.getResponse();
+  if (!captchaToken) {
+    errorBox.textContent = '⚠ Please complete the "I\'m not a robot" check before submitting.';
+    errorBox.classList.add('show');
+    errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  document.getElementById('captcha-expired-msg').classList.remove('show');
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const payload = {
+    name, phone, email, business: biz,
+    type, plan, message: msg,
+    captchaToken
+  };
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  })
+    .then(res => res.json())
+    .then(result => {
+      btn.disabled = false;
+      btn.textContent = '🚀 Send Enquiry';
+
+      if (!result.success) {
+        const isCaptchaIssue = (result.error || '').toLowerCase().includes('captcha');
+        const codes = result.debugCodes && result.debugCodes.length ? ` [${result.debugCodes.join(', ')}]` : '';
+        errorBox.textContent = isCaptchaIssue
+          ? '⏱ Security check failed' + codes + ' — please tick "I\'m not a robot" again and resend.'
+          : '✕ ' + (result.error || 'Something went wrong. Please try again or WhatsApp us directly.') + codes;
+        errorBox.classList.add('show');
+        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        grecaptcha.reset();
+        return;
+      }
+
+      // ── Success: show confirmation + clear form ──
+      const ticketId = result.ticketId;
+
+      document.getElementById('success-msg').classList.add('show');
+      document.getElementById('success-msg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      grecaptcha.reset();
+
+      // Hand off to WhatsApp with the ticket ID included
+      const wa = `Hi Codexora! I'm interested in a website.\n\nTicket: ${ticketId}\nName: ${name}\nPhone: ${phone}\nBusiness: ${biz}\nType: ${type}\nPlan: ${plan}\nDetails: ${msg}`;
+      setTimeout(() => {
+        window.open(`https://wa.me/919628802518?text=${encodeURIComponent(wa)}`, '_blank');
+      }, 600);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = '🚀 Send Enquiry';
+      errorBox.textContent = '✕ Could not reach the server. Please check your connection or WhatsApp us directly.';
+      errorBox.classList.add('show');
+      grecaptcha.reset();
+    });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+</script>
+</body>
+</html>
