@@ -61,6 +61,18 @@
   }
   .error-msg.show { display: block; }
 
+  /* ── FIELD-LEVEL VALIDATION ── */
+  .field-error {
+    display: block; min-height: 0; font-size: .78rem; font-weight: 600;
+    color: #c43a32; margin-top: 6px; line-height: 1.4;
+  }
+  .form-group input.invalid,
+  .form-group select.invalid,
+  .form-group textarea.invalid {
+    border-color: #e0524a !important;
+    box-shadow: 0 0 0 3px rgba(224,82,74,.1);
+  }
+
 </style>
 </head>
 <body>
@@ -133,19 +145,23 @@
         <div class="form-group">
           <label>Your Name *</label>
           <input type="text" id="inp-name" placeholder="Ravi Kumar" autocomplete="name"/>
+          <span class="field-error" id="err-name"></span>
         </div>
         <div class="form-group">
           <label>Phone / WhatsApp *</label>
           <input type="tel" id="inp-phone" placeholder="+91 98765 43210" autocomplete="tel"/>
+          <span class="field-error" id="err-phone"></span>
         </div>
       </div>
       <div class="form-group">
         <label>Email Address</label>
         <input type="email" id="inp-email" placeholder="yourname@email.com" autocomplete="email"/>
+        <span class="field-error" id="err-email"></span>
       </div>
       <div class="form-group">
         <label>Business Name *</label>
         <input type="text" id="inp-biz" placeholder="e.g. Sunrise Public School"/>
+        <span class="field-error" id="err-biz"></span>
       </div>
       <div class="form-group">
         <label>Business Type</label>
@@ -173,6 +189,7 @@
       <div class="form-group">
         <label>Tell us more about your project</label>
         <textarea id="inp-msg" placeholder="What pages do you need? Any design references? Anything specific you'd like us to know..."></textarea>
+        <span class="field-error" id="err-msg"></span>
       </div>
 
       <!-- GOOGLE reCAPTCHA -->
@@ -371,6 +388,79 @@ function onCaptchaExpired() {
   document.getElementById('captcha-expired-msg').classList.add('show');
 }
 
+function clearFieldErrors() {
+  ['name', 'phone', 'email', 'biz', 'msg'].forEach(key => {
+    const errEl = document.getElementById('err-' + key);
+    const inputEl = document.getElementById('inp-' + key);
+    if (errEl) errEl.textContent = '';
+    if (inputEl) inputEl.classList.remove('invalid');
+  });
+}
+
+function setFieldError(key, message) {
+  const errEl = document.getElementById('err-' + key);
+  const inputEl = document.getElementById('inp-' + key);
+  if (errEl) errEl.textContent = message;
+  if (inputEl) inputEl.classList.add('invalid');
+}
+
+function validateForm(name, phone, email, biz, msg) {
+  let isValid = true;
+
+  // Name: at least 2 characters, letters/spaces/dots/apostrophes only
+  if (!name) {
+    setFieldError('name', 'Please enter your name.');
+    isValid = false;
+  } else if (name.length < 2) {
+    setFieldError('name', 'Name looks too short — please enter your full name.');
+    isValid = false;
+  } else if (!/^[A-Za-z\u00C0-\u017F\s.'-]+$/.test(name)) {
+    setFieldError('name', 'Name should only contain letters.');
+    isValid = false;
+  }
+
+  // Phone: 10 digits, optional +91 / 0 prefix
+  const phoneDigits = phone.replace(/[\s-]/g, '');
+  if (!phone) {
+    setFieldError('phone', 'Please enter your phone number.');
+    isValid = false;
+  } else if (!/^(\+?91)?0?[6-9]\d{9}$/.test(phoneDigits)) {
+    setFieldError('phone', 'Enter a valid 10-digit Indian mobile number.');
+    isValid = false;
+  }
+
+  // Email: optional, but if filled must look like a real email
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setFieldError('email', 'Enter a valid email address, or leave this blank.');
+    isValid = false;
+  }
+
+  // Business name: at least 2 characters, not just digits/symbols
+  if (!biz) {
+    setFieldError('biz', 'Please enter your business or organization name.');
+    isValid = false;
+  } else if (biz.length < 2) {
+    setFieldError('biz', 'Business name looks too short.');
+    isValid = false;
+  } else if (!/[A-Za-z]/.test(biz)) {
+    setFieldError('biz', 'Business name should include letters, not just numbers or symbols.');
+    isValid = false;
+  }
+
+  // Message: optional, but if filled, block obvious junk like single repeated characters
+  if (msg && msg !== 'No additional details') {
+    if (msg.length < 5) {
+      setFieldError('msg', 'Please add a few more details, or leave this blank.');
+      isValid = false;
+    } else if (/^(.)\1*$/.test(msg.replace(/\s/g, ''))) {
+      setFieldError('msg', 'That doesn\'t look like a real message — please tell us a bit about your project.');
+      isValid = false;
+    }
+  }
+
+  return isValid;
+}
+
 function submitForm() {
   const name = document.getElementById('inp-name').value.trim();
   const phone = document.getElementById('inp-phone').value.trim();
@@ -378,14 +468,18 @@ function submitForm() {
   const biz = document.getElementById('inp-biz').value.trim();
   const type = document.getElementById('inp-type').value || 'Not specified';
   const plan = document.getElementById('inp-plan').value || 'Not specified';
-  const msg = document.getElementById('inp-msg').value.trim() || 'No additional details';
+  const rawMsg = document.getElementById('inp-msg').value.trim();
+  const msg = rawMsg || 'No additional details';
 
   const errorBox = document.getElementById('error-msg');
   errorBox.classList.remove('show');
   document.getElementById('success-msg').classList.remove('show');
+  clearFieldErrors();
 
-  if (!name || !phone || !biz) {
-    alert('Please fill in your name, phone, and business name to send the enquiry.');
+  if (!validateForm(name, phone, email, biz, rawMsg)) {
+    errorBox.textContent = '⚠ Please fix the highlighted fields below before sending.';
+    errorBox.classList.add('show');
+    document.querySelector('.invalid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
 
@@ -459,6 +553,18 @@ function escapeHtml(str) {
   div.textContent = str;
   return div.innerHTML;
 }
+
+// Clear a field's error the moment the person starts fixing it
+['inp-name', 'inp-phone', 'inp-email', 'inp-biz', 'inp-msg'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', () => {
+    el.classList.remove('invalid');
+    const key = id.replace('inp-', '');
+    const errEl = document.getElementById('err-' + key);
+    if (errEl) errEl.textContent = '';
+  });
+});
 </script>
 </body>
 </html>
