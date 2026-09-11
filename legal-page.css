@@ -1,0 +1,115 @@
+/* ============================================================
+   Codexora Solutions — Legal Page Additions
+   Extends styles.css. Reuses the same CSS variables and, where
+   possible, the same classes (.section-tag, .section-title,
+   .cta-section, .btn-accent, .btn-ghost) already defined there.
+   Load this AFTER styles.css.
+   ============================================================ */
+
+/* ── Page intro (sits right under the fixed nav) ── */
+.legal-hero {
+  padding: 150px 6vw 30px;
+  max-width: 900px;
+}
+.breadcrumb {
+  font-size: .82rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.legal-hero .updated {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-top: .6rem;
+}
+
+/* ── Table of contents ── */
+.legal-toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 28px;
+  margin: 0 6vw 2rem;
+  max-width: 900px;
+}
+.legal-toc h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .9rem;
+}
+.legal-toc ol {
+  margin: 0; padding-left: 20px;
+  columns: 2; font-size: .88rem; color: var(--muted);
+}
+.legal-toc a { color: var(--muted); text-decoration: none; }
+.legal-toc a:hover { color: var(--accent); }
+@media (max-width: 640px) { .legal-toc ol { columns: 1; } }
+
+/* ── Legal content wrapper + cards ── */
+.legal-content {
+  padding: 0 6vw 40px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.legal-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 34px 32px;
+}
+.legal-card h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .9rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.legal-card h2 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border-radius: 10px;
+  background: rgba(0,198,162,.12);
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.legal-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1.1rem 0 .5rem;
+}
+.legal-card p, .legal-card li {
+  font-size: .92rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.legal-card ul { padding-left: 20px; margin: .4rem 0; }
+.legal-card li { margin-bottom: .4rem; }
+.legal-card table {
+  width: 100%; border-collapse: collapse;
+  margin: .8rem 0; font-size: .86rem;
+}
+.legal-card table th, .legal-card table td {
+  border: 1px solid var(--border);
+  padding: 10px 12px; text-align: left;
+}
+.legal-card table th {
+  background: rgba(0,198,162,.08);
+  color: var(--ink); font-family: 'Syne', sans-serif; font-weight: 700;
+}
+
+/* ── Legal CTA (thin wrapper — actual look comes from .cta-section etc.) ── */
+.legal-cta .section-title { margin-bottom: .3rem; }
