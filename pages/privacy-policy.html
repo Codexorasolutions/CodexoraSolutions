@@ -9,7 +9,85 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../legal-page.css">
+<style>
+/* ============================================================
+   Legal page additions — extends styles.css variables/classes.
+   Embedded directly so it can never fail to load separately.
+   ============================================================ */
+
+.legal-hero { padding: 150px 6vw 30px; max-width: 900px; }
+.breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 1.2rem; }
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.legal-hero .updated { font-size: .9rem; color: var(--muted); margin-top: .6rem; }
+
+.legal-toc {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 18px; padding: 26px 28px;
+  margin: 0 6vw 2rem; max-width: 900px; box-shadow: var(--shadow);
+}
+.legal-toc h2 {
+  font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700;
+  color: var(--ink); margin-bottom: .9rem;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.legal-toc ol {
+  margin: 0; padding-left: 22px; columns: 2;
+  font-size: .88rem; color: var(--muted); list-style: decimal;
+}
+.legal-toc li { margin-bottom: .5rem; padding-left: 4px; }
+.legal-toc li::marker { color: var(--accent); font-weight: 700; }
+.legal-toc a { color: var(--muted); text-decoration: none; }
+.legal-toc a:hover { color: var(--accent); }
+@media (max-width: 640px) { .legal-toc ol { columns: 1; } }
+
+.legal-content {
+  padding: 0 6vw 40px; max-width: 900px;
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+.legal-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 20px; padding: 34px 32px;
+  transition: box-shadow .25s, transform .25s;
+}
+.legal-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.legal-card h2 {
+  font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+  color: var(--ink); margin-bottom: .9rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.legal-card h2 .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 10px;
+  background: rgba(0,198,162,.12); color: var(--accent);
+  font-family: 'Syne', sans-serif; font-size: .85rem; flex-shrink: 0;
+}
+.legal-card h3 {
+  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+  color: var(--ink); margin: 1.1rem 0 .5rem;
+}
+.legal-card p, .legal-card li { font-size: .92rem; line-height: 1.75; color: var(--muted); }
+.legal-card p { margin-bottom: .6rem; }
+.legal-card ul { padding-left: 20px; margin: .4rem 0; list-style: disc; }
+.legal-card li { margin-bottom: .4rem; }
+.legal-card li::marker { color: var(--accent); }
+.legal-card a { color: var(--accent); text-decoration: none; }
+.legal-card a:hover { text-decoration: underline; }
+.legal-card strong { color: var(--ink); }
+.legal-card table { width: 100%; border-collapse: collapse; margin: .8rem 0; font-size: .86rem; }
+.legal-card table th, .legal-card table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+.legal-card table th {
+  background: rgba(0,198,162,.08); color: var(--ink);
+  font-family: 'Syne', sans-serif; font-weight: 700;
+}
+
+.legal-cta .section-title { margin-bottom: .3rem; }
+
+@media (max-width: 640px) {
+  .legal-hero { padding: 130px 6vw 20px; }
+  .legal-card { padding: 26px 22px; }
+}
+</style>
 </head>
 <body>
 
