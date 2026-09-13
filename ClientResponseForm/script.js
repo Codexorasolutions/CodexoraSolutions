@@ -29,12 +29,7 @@ function pickColor(el){
 }
 function pickCustomColor(inp){
   const existing = document.getElementById('customColorDot');
-  if(existing){
-    existing.classList.remove('selected');
-    const customIndex = selectedColors.findIndex(c => c === 'Custom' || c.startsWith('Custom:'));
-    if(customIndex > -1) selectedColors.splice(customIndex, 1);
-    existing.remove();
-  }
+  if(existing){ existing.classList.remove('selected'); selectedColors.splice(selectedColors.indexOf('Custom'),1); }
   const dot = document.createElement('div');
   dot.className = 'color-dot selected';
   dot.id = 'customColorDot';
@@ -331,9 +326,8 @@ function submit(){
   fetch(SHEET_URL, {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-    body: JSON.stringify(payload),
-    keepalive: true
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
   }).catch(err => console.error('Submission error:', err));
 }
 
