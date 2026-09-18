@@ -15,7 +15,7 @@
 // ============================================================
 
 const POPUP_DELAY_MS = 1500;      // wait time before popup appears
-const POPUP_COOLDOWN_HOURS = 20;  // don't re-show for this many hours after dismissal
+const POPUP_COOLDOWN_HOURS = 0;  // don't re-show for this many hours after dismissal
 
 (function () {
   if (typeof BLOG_POSTS === "undefined") return;
