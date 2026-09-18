@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — Codexora Solutions</title>
+<meta name="description" content="Terms and Conditions for Codexora Solutions — the rules that govern our website design services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ============================================================
+   Legal page additions — extends styles.css variables/classes.
+   Embedded directly so it can never fail to load separately.
+   ============================================================ */
+
+.legal-hero { padding: 150px 6vw 30px; max-width: 900px; }
+.breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 1.2rem; }
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+.legal-hero .updated { font-size: .9rem; color: var(--muted); margin-top: .6rem; }
+
+.legal-toc {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 18px; padding: 26px 28px;
+  margin: 0 6vw 2rem; max-width: 900px; box-shadow: var(--shadow);
+}
+.legal-toc h2 {
+  font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 700;
+  color: var(--ink); margin-bottom: .9rem;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.legal-toc ol {
+  margin: 0; padding-left: 22px; columns: 2;
+  font-size: .88rem; color: var(--muted); list-style: decimal;
+}
+.legal-toc li { margin-bottom: .5rem; padding-left: 4px; }
+.legal-toc li::marker { color: var(--accent); font-weight: 700; }
+.legal-toc a { color: var(--muted); text-decoration: none; }
+.legal-toc a:hover { color: var(--accent); }
+@media (max-width: 640px) { .legal-toc ol { columns: 1; } }
+
+.legal-content {
+  padding: 0 6vw 40px; max-width: 900px;
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+.legal-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 20px; padding: 34px 32px;
+  transition: box-shadow .25s, transform .25s;
+}
+.legal-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.legal-card h2 {
+  font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+  color: var(--ink); margin-bottom: .9rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.legal-card h2 .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 10px;
+  background: rgba(0,198,162,.12); color: var(--accent);
+  font-family: 'Syne', sans-serif; font-size: .85rem; flex-shrink: 0;
+}
+.legal-card h3 {
+  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+  color: var(--ink); margin: 1.1rem 0 .5rem;
+}
+.legal-card p, .legal-card li { font-size: .92rem; line-height: 1.75; color: var(--muted); }
+.legal-card p { margin-bottom: .6rem; }
+.legal-card ul { padding-left: 20px; margin: .4rem 0; list-style: disc; }
+.legal-card li { margin-bottom: .4rem; }
+.legal-card li::marker { color: var(--accent); }
+.legal-card a { color: var(--accent); text-decoration: none; }
+.legal-card a:hover { text-decoration: underline; }
+.legal-card strong { color: var(--ink); }
+.legal-card table { width: 100%; border-collapse: collapse; margin: .8rem 0; font-size: .86rem; }
+.legal-card table th, .legal-card table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+.legal-card table th {
+  background: rgba(0,198,162,.08); color: var(--ink);
+  font-family: 'Syne', sans-serif; font-weight: 700;
+}
+
+.legal-cta .section-title { margin-bottom: .3rem; }
+
+@media (max-width: 640px) {
+  .legal-hero { padding: 130px 6vw 20px; }
+  .legal-card { padding: 26px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="../index.html" class="logo"><img src="../logo.png" alt="Codexora Solutions"></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Started</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="../index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="process.html">Process</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="work.html">Work</a>
+  <a href="faq.html">FAQ</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section class="legal-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Terms &amp; Conditions</div>
+  <span class="section-tag">Legal</span>
+  <h1 class="section-title">Terms &amp; Conditions</h1>
+  <p class="updated">Last updated: September 11, 2026</p>
+</section>
+
+<div class="legal-toc">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#services">Our Services</a></li>
+    <li><a href="#process">Project Process &amp; Approval</a></li>
+    <li><a href="#pricing">Pricing &amp; Payment</a></li>
+    <li><a href="#revisions">Revisions</a></li>
+    <li><a href="#content">Client Content &amp; Responsibilities</a></li>
+    <li><a href="#ownership">Ownership &amp; Delivery</a></li>
+    <li><a href="#domain">Domain, Hosting &amp; Maintenance</a></li>
+    <li><a href="#cancellation">Cancellation &amp; Refunds</a></li>
+    <li><a href="#liability">Liability</a></li>
+    <li><a href="#ip">Intellectual Property</a></li>
+    <li><a href="#law">Governing Law</a></li>
+    <li><a href="#changes">Changes to These Terms</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ol>
+</div>
+
+<div class="legal-content">
+
+  <div class="legal-card" id="intro">
+    <h2><span class="num">1</span>Introduction</h2>
+    <p>These Terms &amp; Conditions ("Terms") govern your use of <strong>www.codexorasolutions.online</strong> (the "Site") and any website design, development, or maintenance services provided by Codexora Solutions ("Codexora," "we," "us," or "our"), based in Ballia, Uttar Pradesh, India.</p>
+    <p>By contacting us, placing an order, or using our Site, you agree to these Terms. If you do not agree, please do not use our services.</p>
+  </div>
+
+  <div class="legal-card" id="services">
+    <h2><span class="num">2</span>Our Services</h2>
+    <p>Codexora designs and builds custom websites for schools, colleges, shops, restaurants, clinics, and other local businesses, including features such as contact/enquiry forms, galleries, WhatsApp integration, and basic SEO. Exact deliverables depend on the plan (Basic, Business, or Premium) or custom package you choose, as confirmed in writing (WhatsApp, email, or invoice) before work begins.</p>
+  </div>
+
+  <div class="legal-card" id="process">
+    <h2><span class="num">3</span>Project Process &amp; Approval</h2>
+    <ul>
+      <li>You share your business details, content, and preferences with us via our contact form, WhatsApp, or email</li>
+      <li>We design and build your website, typically within the timeline quoted for your plan</li>
+      <li>We share a live preview link for your review before the site goes live</li>
+      <li>You request any changes; once you approve the preview, we proceed to launch</li>
+      <li>Timelines depend on how quickly you provide content and feedback — delays on your end may extend delivery dates</li>
+    </ul>
+  </div>
+
+  <div class="legal-card" id="pricing">
+    <h2><span class="num">4</span>Pricing &amp; Payment</h2>
+    <ul>
+      <li>Pricing is as displayed on our Pricing page or as quoted to you directly, in Indian Rupees (₹) unless stated otherwise</li>
+      <li>We generally require an advance payment before starting work, with the balance due before the site is made live, unless otherwise agreed in writing</li>
+      <li>Prices are one-time for the build unless you choose a maintenance/AMC (Annual Maintenance Contract) add-on, which renews as agreed</li>
+      <li>Domain and hosting renewal costs (typically ₹2,000–₹5,000/year) are separate, ongoing costs and are not included in the one-time build price unless specified</li>
+      <li>There are no hidden charges — any change to the quoted price will be communicated to you before we do the related work</li>
+    </ul>
+  </div>
+
+  <div class="legal-card" id="revisions">
+    <h2><span class="num">5</span>Revisions</h2>
+    <p>We offer unlimited design revisions during the preview stage until you are satisfied, within the scope of the original request (pages, features, and content agreed at the start). Requests that significantly expand the original scope (e.g. adding many new pages or features not part of your plan) may be treated as a separate, additional charge — we'll always tell you before proceeding.</p>
+  </div>
+
+  <div class="legal-card" id="content">
+    <h2><span class="num">6</span>Client Content &amp; Responsibilities</h2>
+    <ul>
+      <li>You are responsible for providing accurate text, images, logos, and other content for your website, and for ensuring you have the right to use that content</li>
+      <li>You are responsible for the accuracy of information published on your site (fees, timings, contact details, etc.)</li>
+      <li>We are not responsible for delays caused by late or incomplete content from your side</li>
+      <li>You agree not to ask us to publish unlawful, defamatory, or infringing content</li>
+    </ul>
+  </div>
+
+  <div class="legal-card" id="ownership">
+    <h2><span class="num">7</span>Ownership &amp; Delivery</h2>
+    <p>Once your project is delivered and paid for in full, ownership of the final website — code, content, and assets you provided — transfers to you. We hand over domain and hosting access (where purchased through us) so you have full control, with no lock-in. Any third-party licensed assets (stock photos, fonts, plugins) remain subject to their own license terms.</p>
+  </div>
+
+  <div class="legal-card" id="domain">
+    <h2><span class="num">8</span>Domain, Hosting &amp; Maintenance</h2>
+    <p>If you purchase domain or hosting through us, we'll help set it up and explain renewal timelines. Renewal is your responsibility unless you're on an active AMC that covers it. Support/maintenance periods included in your plan (e.g. 1, 3, or 6 months) cover reasonable bug fixes, minor text/image updates, and technical support; work beyond that scope, or after the support period ends, may be quoted separately.</p>
+  </div>
+
+  <div class="legal-card" id="cancellation">
+    <h2><span class="num">9</span>Cancellation &amp; Refunds</h2>
+    <ul>
+      <li>You may cancel a project before work begins for a full refund of any advance paid</li>
+      <li>Once design or development work has started, the advance payment is non-refundable, as it covers work already completed</li>
+      <li>If you cancel midway through a project, you will be billed for work completed up to that point; any excess advance will be refunded</li>
+      <li>We reserve the right to pause or cancel a project if a client is unresponsive for an extended period, or if payment terms are not met</li>
+    </ul>
+  </div>
+
+  <div class="legal-card" id="liability">
+    <h2><span class="num">10</span>Liability</h2>
+    <p>We aim to deliver reliable, well-tested websites, but we do not guarantee uninterrupted uptime, as this depends on your hosting provider. Codexora is not liable for indirect losses (such as lost business or lost data) arising from the use of your website, third-party service outages, or events beyond our reasonable control. Our total liability for any claim is limited to the amount you paid us for the relevant project.</p>
+  </div>
+
+  <div class="legal-card" id="ip">
+    <h2><span class="num">11</span>Intellectual Property</h2>
+    <p>Until final payment is made, Codexora retains rights to the design and code being developed. Our own internal tools, templates, and reusable code frameworks remain our intellectual property and may be reused across other client projects, even after your project is delivered.</p>
+  </div>
+
+  <div class="legal-card" id="law">
+    <h2><span class="num">12</span>Governing Law</h2>
+    <p>These Terms are governed by the laws of India. Any disputes will be subject to the exclusive jurisdiction of the courts in Ballia, Uttar Pradesh, India.</p>
+  </div>
+
+  <div class="legal-card" id="changes">
+    <h2><span class="num">13</span>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The "Last updated" date at the top of this page reflects the latest version. Continued use of our services after changes means you accept the updated Terms.</p>
+  </div>
+
+  <div class="legal-card" id="contact">
+    <h2><span class="num">14</span>Contact Us</h2>
+    <p>Questions about these Terms? Reach out anytime:</p>
+    <ul>
+      <li>Email: <a href="mailto:CodexoraSolutions@gmail.com">CodexoraSolutions@gmail.com</a></li>
+      <li>WhatsApp: <a href="https://wa.me/919628802518" target="_blank" rel="noopener">+91 96288 02518</a></li>
+      <li>Based in Ballia, Uttar Pradesh, India</li>
+    </ul>
+  </div>
+
+</div>
+
+<section class="cta-section legal-cta">
+  <span class="section-tag">Get In Touch</span>
+  <h2 class="section-title">Ready to start your project?</h2>
+  <p class="section-sub" style="margin-left:auto;margin-right:auto;">Tell us about your business — we'll get back to you within 24 hours with a free quote.</p>
+  <div class="cta-actions">
+    <a class="btn-accent" href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+    <a class="btn-ghost" href="mailto:CodexoraSolutions@gmail.com">✉️ Send an Email</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<a href="https://wa.me/919628802518?text=Hi%20Codexora%2C%20I%20need%20a%20website!" class="wa-float" target="_blank" rel="noopener">
+  💬<span class="wa-tooltip">Chat with us!</span>
+</a>
+<button id="back-top" aria-label="Back to top">↑</button>
+
+<script src="../script.js"></script>
+  <script src="../footer.js"></script>
+</body>
+</html>
