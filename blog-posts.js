@@ -27,10 +27,10 @@ const BLOG_POSTS = [
   {
     id: "diwali-offer-2026",
     category: "offer",
-    title: "Diwali Special — 20% off all School & College Websites",
+    title: "Diwali Special — 10% off all School & College Websites",
     date: "2026-09-15",
-    excerpt: "Book a new school or college website before the offer ends and save 20% on our standard package.",
-    body: "To celebrate the festive season, we're offering 20% off our standard School & College Website package for any project booked before the offer ends.\n\nThis includes the full site build, admissions/enquiry form, photo gallery, and one round of revisions. Message us on WhatsApp to lock in the discount.",
+    excerpt: "Book a new school or college website before the offer ends and save 10% on our standard package.",
+    body: "To celebrate the festive season, we're offering 10% off our standard School & College Website package for any project booked before the offer ends.\n\nThis includes the full site build, admissions/enquiry form, photo gallery, and one round of revisions. Message us on WhatsApp to lock in the discount.",
     expires: "2026-10-30"
   },
   {
