@@ -58,7 +58,57 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
   <div class="footer-bottom">
     <span>© 2026 Codexora Solutions. All rights reserved.</span>
+    <span id="visitor-count" class="visitor-badge" title="Total site visits">
+      <span class="visitor-dot"></span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-7.6 0-11 6.2-11 7 0 .8 3.4 7 11 7s11-6.2 11-7c0-.8-3.4-7-11-7Zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9Zm0-7A2.5 2.5 0 1 0 12 14a2.5 2.5 0 0 0 0-4.5Z"/></svg>
+      <span class="visitor-label">Visitors :</span>
+      <span class="visitor-num">—</span>
+    </span>
     <span>Made with ❤️ for small businesses</span>
   </div>
+  <style>
+    .visitor-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .32rem .8rem .32rem .65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(0,198,162,.16), rgba(0,198,162,.04));
+      border: 1px solid rgba(0,198,162,.35);
+      color: #00c6a2;
+      font-size: .78rem; font-weight: 600; letter-spacing: .01em;
+      line-height: 1;
+    }
+    .visitor-badge svg { width: 14px; height: 14px; fill: currentColor; flex: 0 0 auto; opacity: .9; }
+    .visitor-badge .visitor-label { color: rgba(0,198,162,.85); font-weight: 500; }
+    .visitor-badge .visitor-num { color: #fff; font-weight: 700; }
+    .visitor-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #00c6a2; box-shadow: 0 0 6px 1px rgba(0,198,162,.7);
+      flex: 0 0 auto;
+      animation: visitor-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes visitor-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .35; transform: scale(.7); }
+    }
+    @media (max-width: 640px) {
+      .footer-bottom { gap: .8rem; }
+    }
+  </style>
 </footer>`;
+
+  // Fill in the visitor count (CountAPI — free, no-signup hit counter).
+  // One shared key across every page = a running total of page loads
+  // for the whole site.
+  const counterNumEl = document.querySelector("#visitor-count .visitor-num");
+  if (counterNumEl) {
+    fetch("https://countapi.mileshilliard.com/api/v1/hit/codexorasolutions_in_total_visitors")
+      .then((res) => res.json())
+      .then((data) => {
+        const n = parseInt(data.value, 10);
+        counterNumEl.textContent = isNaN(n) ? data.value : n.toLocaleString();
+      })
+      .catch(() => {
+        counterNumEl.textContent = "—";
+      });
+  }
 });
