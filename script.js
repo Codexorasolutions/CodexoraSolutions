@@ -96,5 +96,5 @@ document.querySelectorAll('.faq-q').forEach(q => {
 // ── START PROJECT BUTTON ──
 function startProject() {
   // Navigate to Client Response Form with proper URL encoding
-  window.location.href = encodeURI('ClientResponseForm/index.html');
+  window.location.href = encodeURI('ClientResponseForm.html');
 }

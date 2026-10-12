@@ -32,39 +32,9 @@
 <!-- BACK TO TOP -->
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo" aria-label="Codexora Solutions home">
-    <img src="logo.png" alt="Codexora Solutions">
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="pages/services.html">Services</a></li>
-    <li><a href="pages/process.html">Process</a></li>
-    <li><a href="pages/pricing.html">Pricing</a></li>
-    <li><a href="pages/work.html">Work</a></li>
-    <li><a href="pages/faq.html">FAQ</a></li>
-    <li><a href="pages/about.html">About</a></li>
-    <li><a href="pages/contact.html">Contact</a></li>
-  </ul>
-  <a href="pages/contact.html" class="nav-cta">Get Started</a>
-  <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav">
-  <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">&times;</button>
-  <a href="index.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Home</a>
-  <a href="pages/services.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
-  <a href="pages/process.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Process</a>
-  <a href="pages/pricing.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Pricing</a>
-  <a href="pages/work.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Work</a>
-  <a href="pages/faq.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">FAQ</a>
-  <a href="pages/about.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">About</a>
-  <a href="pages/contact.html" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
-</div>
+<!-- SITE HEADER: edit header.js to change nav on every page -->
+<div id="site-header"></div>
+<script src="header.js"></script>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -451,49 +421,10 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="#" class="logo" aria-label="Codexora Solutions home">
-        <img src="logofoot.png" alt="Codexora Solutions">
-      </a>
-      <p>Affordable, modern websites for schools, colleges, shops, and local businesses across India.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="pages/services.html">School Websites</a></li>
-        <li><a href="pages/services.html">College Portals</a></li>
-        <li><a href="pages/services.html">Shop Pages</a></li>
-        <li><a href="pages/services.html">Maintenance</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="pages/about.html">About Us</a></li>
-        <li><a href="pages/work.html">Portfolio</a></li>
-        <li><a href="pages/pricing.html">Pricing</a></li>
-        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="pages/terms-conditions.html">Terms & Conditions</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="https://wa.me/919628802518" target="_blank">WhatsApp</a></li>
-        <li><a href="mailto:CodexoraSolutions@gmail.com">hello@Codexorasolutions.in</a></li>
-        <li><a href="https://www.instagram.com/codexorasolutions" target="_blank">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/company/codexorasolutions" target="_blank">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Codexora Solutions. All rights reserved.</span>
-    <span>Made with ❤️ for small businesses</span>
-  </div>
-</footer>
-
+<div id="site-footer"></div>
 <script src="script.js"></script>
+  <script src="footer.js"></script>
+  <script src="blog-posts.js"></script>
+  <script src="offer-popup.js"></script>
 </body>
 </html>
