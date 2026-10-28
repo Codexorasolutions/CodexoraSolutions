@@ -18,7 +18,7 @@
 const BLOG_POSTS = [
   {
     id: "welcome-to-our-client-login-portal",
-    category: "Update",
+    category: "update",
     title: "Introducing the Codexora Solutions Client Portal",
     date: "2026-10-18",
     excerpt: "Your new central hub for company news, feature updates, and exclusive offers, all in one secure place.",
