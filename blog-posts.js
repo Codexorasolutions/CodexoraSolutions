@@ -17,6 +17,15 @@
 
 const BLOG_POSTS = [
   {
+    id: "welcome-to-our-client-login-portal",
+    category: "Update",
+    title: "Introducing the Codexora Solutions Client Portal",
+    date: "2026-10-18",
+    excerpt: "Your new central hub for company news, feature updates, and exclusive offers, all in one secure place.",
+    body: "We're pleased to announce the launch of the Codexora Solutions Client Portal, a dedicated space designed to keep you informed and connected with our team.\n\nFrom today, all company news, product and feature updates, and special offers for our clients will be published right here. Instead of searching through emails or messages, you'll have one reliable place to find everything you need.\n\nOur goal with this portal is simple: to make communication with you faster, clearer, and more transparent. We'll continue to improve it based on your feedback, so please don't hesitate to share your thoughts with us.\n\nThank you for being a valued part of the Codexora Solutions community. We look forward to serving you better.",
+  },
+  
+  {
     id: "welcome-blog",
     category: "news",
     title: "We've launched our Blog & Updates page",
