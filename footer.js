@@ -26,18 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${pages}services.html">College Portals</a></li>
         <li><a href="${pages}services.html">Shop Pages</a></li>
         <li><a href="${pages}services.html">Maintenance</a></li>
-        <li><a href="${pages}blog.html">Blogs</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
         <li><a href="${pages}about.html">About Us</a></li>
-        <li><a href="${pages}faq.html">FAQs</a></li>
+        <li><a href="${pages}work.html">Portfolio</a></li>
         <li><a href="${pages}pricing.html">Pricing</a></li>
         <li><a href="${pages}privacy-policy.html">Privacy Policy</a></li>
         <li><a href="${pages}terms-conditions.html">Terms &amp; Conditions</a></li>
-        <li><a href="https://client-login-portal-gilt.vercel.app">Client Login</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -63,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <span id="visitor-count" class="visitor-badge" title="Total site visits">
       <span class="visitor-dot"></span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-7.6 0-11 6.2-11 7 0 .8 3.4 7 11 7s11-6.2 11-7c0-.8-3.4-7-11-7Zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9Zm0-7A2.5 2.5 0 1 0 12 14a2.5 2.5 0 0 0 0-4.5Z"/></svg>
-      <span class="visitor-label">Visitors :</span>
+      <span class="visitor-label">Visitors</span>
       <span class="visitor-num">—</span>
     </span>
     <span>Made with ❤️ for small businesses</span>
@@ -98,14 +96,29 @@ document.addEventListener("DOMContentLoaded", () => {
   </style>
 </footer>`;
 
-  // Fill in the visitor count (CountAPI — free, no-signup hit counter).
-  // One shared key across every page = a running total of page loads
-  // for the whole site.
+  // Fill in the visitor count (CountAPI — free, no-signup counter).
+  // UNIQUE-VISITOR LOGIC: a visitor is counted only ONCE per browser.
+  // First visit -> /hit/ (adds +1) and we remember that in localStorage.
+  // Every later page load / refresh -> /get/ (just reads the number).
+  const COUNTER_KEY = "codexorasolutions_in_total_visitors";
+  const API = "https://countapi.mileshilliard.com/api/v1/";
+  const FLAG = "codexora_visitor_counted";
+
+  let alreadyCounted = false;
+  try { alreadyCounted = localStorage.getItem(FLAG) === "1"; } catch (e) {}
+
   const counterNumEl = document.querySelector("#visitor-count .visitor-num");
   if (counterNumEl) {
-    fetch("https://countapi.mileshilliard.com/api/v1/hit/codexorasolutions_in_total_visitors")
-      .then((res) => res.json())
+    fetch(API + (alreadyCounted ? "get/" : "hit/") + COUNTER_KEY)
+      .then((res) => {
+        if (!res.ok) throw new Error("counter " + res.status);
+        return res.json();
+      })
       .then((data) => {
+        // Only mark as counted once the +1 actually succeeded
+        if (!alreadyCounted) {
+          try { localStorage.setItem(FLAG, "1"); } catch (e) {}
+        }
         const n = parseInt(data.value, 10);
         counterNumEl.textContent = isNaN(n) ? data.value : n.toLocaleString();
       })
