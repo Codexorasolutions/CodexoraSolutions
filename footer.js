@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <h4>Company</h4>
       <ul>
         <li><a href="${pages}about.html">About Us</a></li>
-        <li><a href="${pages}work.html">Portfolio</a></li>
-        <li><a href="${pages}pricing.html">Pricing</a></li>
+        <li><a href="${pages}blog.html">Blogs</a></li>
         <li><a href="${pages}privacy-policy.html">Privacy Policy</a></li>
         <li><a href="${pages}terms-conditions.html">Terms &amp; Conditions</a></li>
+        <li><a href="https://client-login-portal-gilt.vercel.app">Client Login</a></li>
       </ul>
     </div>
     <div class="footer-col">
