@@ -81,7 +81,7 @@
     ${desktopLinks}
   </ul>
   <div class="nav-actions">
-    <a href="${LOGIN.href}" class="nav-login">${LOGIN.label}</a>
+    <a href="${LOGIN.href}" target="${LOGIN.target}" class="nav-login">${LOGIN.label}</a>
     <a href="${url(CTA.href)}" class="nav-cta">${CTA.label}</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
