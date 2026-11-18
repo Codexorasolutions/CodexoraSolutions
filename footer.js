@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${pages}privacy-policy.html">Privacy Policy</a></li>
         <li><a href="#" data-cookie-settings>Cookie Settings</a></li>
         <li><a href="${pages}terms-conditions.html">Terms &amp; Conditions</a></li>
-        <li><a href="https://client-login-portal-gilt.vercel.app">Client Login</a></li>
+        <li><a href="https://client-login-portal-gilt.vercel.app" target= "_blank" >Client Login</a></li>
       </ul>
     </div>
     <div class="footer-col">
