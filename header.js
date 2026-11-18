@@ -37,7 +37,7 @@
 
   // External link to the client portal. Full URL, used as-is
   // (it is NOT passed through url(), so no "../" gets added).
-  const LOGIN = { label: "Client Login", href: "https://client-login-portal-gilt.vercel.app" };
+  const LOGIN = { label: "Client Login", href: "https://client-login-portal-gilt.vercel.app" ,target: "_blank"};
 
   // ─────────────── 2. LOGIC (no need to edit) ───────────────
 
